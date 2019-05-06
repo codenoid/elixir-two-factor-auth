@@ -1,11 +1,10 @@
 # Elixir2fa
 
-Generate QR-Code, Random Secret and do TOTP Verification
+Library for generating QR-Code, Random Secret and Verify Time Based Password
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `elixir2fa` to your list of dependencies in `mix.exs`:
+This package can be installed by adding `elixir2fa` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
