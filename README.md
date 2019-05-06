@@ -15,10 +15,11 @@ def deps do
 end
 ```
 
-Awesome person : 
-	- https://github.com/codenoid/elixir-two-factor-auth
-	- https://gist.github.com/ahmadshah/8d978bbc550128cca12dd917a09ddfb7
-	- https://github.com/SushiChain/crystal-two-factor-auth/blob/master/src/crystal-two-factor-auth.cr
+Some source code taken from : 
+
+* https://github.com/codenoid/elixir-two-factor-auth
+* https://gist.github.com/ahmadshah/8d978bbc550128cca12dd917a09ddfb7
+* https://github.com/SushiChain/crystal-two-factor-auth/blob/master/src/crystal-two-factor-auth.cr
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
