@@ -17,7 +17,7 @@ defmodule Elixir2fa.MixProject do
 
   defp description do
     """
-    Library for generating QR-Code and Verify Time based Password
+    Library for generating QR-Code, Random Secret and Verify Time Based Password
     """
   end
 
