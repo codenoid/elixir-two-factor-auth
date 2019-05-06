@@ -15,6 +15,17 @@ def deps do
 end
 ```
 
+## Usage
+
+```
+iex> secret = Elixir2fa.random_secret(16)     
+"HpJBFRtHjgIQJWIB"
+iex> Elixir2fa.generate_qr("account_name", secret)
+"https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=200x200&chld=M|0&cht=qr&chl=otpauth://totp/account_name?secret=HpJBFRtHjgIQJWIB" # scan via Google Authenticator, Authy, etc
+iex> Elixir2fa.generate_totp(secret)              
+"573671" # compare with user token
+```
+
 Some source code taken from : 
 
 * https://github.com/codenoid/elixir-two-factor-auth
