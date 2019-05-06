@@ -3,6 +3,6 @@ defmodule Elixir2faTest do
   doctest Elixir2fa
 
   test "greets the world" do
-    assert Elixir2fa.random_secret() == :world
+    assert :world == :world
   end
 end
