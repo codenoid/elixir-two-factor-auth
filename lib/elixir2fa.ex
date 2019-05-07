@@ -25,7 +25,10 @@ defmodule Elixir2fa do
   """
   def generate_qr(name, secret) do
     otp_url = otp_auth_url(name, secret)
-    "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=200x200&chld=M|0&cht=qr&chl=#{otp_url}"
+
+    "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=200x200&chld=M|0&cht=qr&chl=#{
+      otp_url
+    }"
   end
 
   @doc """
@@ -39,19 +42,21 @@ defmodule Elixir2fa do
 
   defp generate_hmac(secret, period) do
     # Clean unwanted character from the secret and decode it using Base32 "encoding"
-    key = secret
-          |> String.replace(" ", "")
-          |> String.upcase
-          |> Base.decode32!
+    key =
+      secret
+      |> String.replace(" ", "")
+      |> String.upcase()
+      |> Base.decode32!()
 
     # Generate the moving mactor
-    moving_factor = DateTime.utc_now
-                    |> DateTime.to_unix
-                    |> Integer.floor_div(period)
-                    |> Integer.to_string(16)
-                    |> String.pad_leading(16, "0")
-                    |> String.upcase
-                    |> Base.decode16!
+    moving_factor =
+      DateTime.utc_now()
+      |> DateTime.to_unix()
+      |> Integer.floor_div(period)
+      |> Integer.to_string(16)
+      |> String.pad_leading(16, "0")
+      |> String.upcase()
+      |> Base.decode16!()
 
     # Generate SHA-1
     :crypto.hmac(:sha, key, moving_factor)
@@ -72,8 +77,8 @@ defmodule Elixir2fa do
 
   defp generate_hotp(truncated_hmac) do
     truncated_hmac
-    |> rem(1000000)
-    |> Integer.to_string
+    |> rem(1_000_000)
+    |> Integer.to_string()
   end
 
   @doc """
@@ -100,13 +105,13 @@ defmodule Elixir2fa do
   end
 
   @doc false
-  defp get_range(length) when length > 1, do: (1..length)
+  defp get_range(length) when length > 1, do: 1..length
   defp get_range(length), do: [1]
 
   @doc false
   defp do_randomizer(length, lists) do
     get_range(length)
-    |> Enum.reduce([], fn(_, acc) -> [Enum.random(lists) | acc] end)
+    |> Enum.reduce([], fn _, acc -> [Enum.random(lists) | acc] end)
     |> Enum.join("")
   end
 end
