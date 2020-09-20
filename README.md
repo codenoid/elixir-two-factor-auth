@@ -1,3 +1,6 @@
+:bangbang: | This library is insecure and barery maintained, we suggest you to use [https://github.com/dashbitco/nimble_totp](https://github.com/dashbitco/nimble_totp)
+:---: | :---
+
 # Elixir2fa
 
 Library for generating QR-Code, Random Secret and Verify Time Based Password
